@@ -5,11 +5,11 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 Iniciando build para Vercel...');
+console.log(' Iniciando build para Vercel...');
 
 // Verificar variables de entorno
 if (!process.env.EXPO_PUBLIC_WEATHER_API_KEY) {
-  console.log('⚠️  EXPO_PUBLIC_WEATHER_API_KEY no está configurada');
+  console.log('  EXPO_PUBLIC_WEATHER_API_KEY no está configurada');
   console.log('   Usando API key por defecto para el build');
 }
 
@@ -17,7 +17,7 @@ try {
   // Limpiar directorio dist si existe
   const distDir = path.join(__dirname, 'dist');
   if (fs.existsSync(distDir)) {
-    console.log('🧹 Limpiando directorio dist...');
+    console.log('Limpiando directorio dist...');
     fs.rmSync(distDir, { recursive: true, force: true });
   }
 

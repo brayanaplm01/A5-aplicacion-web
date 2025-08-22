@@ -7,8 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build": "node build.js",
-    "build:vercel": "npm run build",
+    "build": "npx expo export --platform web",
+    "build:vercel": "npx expo export --platform web",
     "deploy": "npm run build && vercel --prod",
     "lint": "echo 'No linting errors found'",
     "prebuild": "echo 'Preparando build para Vercel...'"
