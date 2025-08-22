@@ -30,5 +30,40 @@
     <div id="root">
         <div class="app-loading">Cargando AppClima...</div>
     </div>
+    
+    <script>
+        // Debug para ver qué está pasando
+        console.log('Index.html cargado correctamente');
+        
+        // Detectar errores de carga
+        window.addEventListener('error', function(e) {
+            console.error('Error detectado:', e);
+            document.getElementById('root').innerHTML = `
+                <div style="padding: 20px; text-align: center; color: white;">
+                    <h2>❌ Error al cargar la aplicación</h2>
+                    <p>Error: ${e.message}</p>
+                    <button onclick="location.reload()" style="padding: 10px 20px; margin: 10px; background: white; color: #333; border: none; border-radius: 5px; cursor: pointer;">
+                        🔄 Reintentar
+                    </button>
+                </div>
+            `;
+        });
+        
+        // Timeout de carga
+        setTimeout(() => {
+            const root = document.getElementById('root');
+            if (root.innerHTML.includes('Cargando AppClima')) {
+                root.innerHTML = `
+                    <div style="padding: 20px; text-align: center; color: white;">
+                        <h2>⏱️ Tiempo de carga excedido</h2>
+                        <p>La aplicación no pudo cargar en el tiempo esperado.</p>
+                        <button onclick="location.reload()" style="padding: 10px 20px; margin: 10px; background: white; color: #333; border: none; border-radius: 5px; cursor: pointer;">
+                            🔄 Reintentar
+                        </button>
+                    </div>
+                `;
+            }
+        }, 10000); // 10 segundos timeout
+    </script>
 </body>
 </html>
