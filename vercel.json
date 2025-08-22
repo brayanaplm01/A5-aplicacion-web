@@ -1,12 +1,6 @@
 {
-  "buildCommand": "npx expo export --platform web",
-  "outputDirectory": "dist",
+  "buildCommand": "npm run build-web",
+  "outputDirectory": "web-build",
   "installCommand": "npm install --legacy-peer-deps",
-  "framework": null,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "framework": null
 }
